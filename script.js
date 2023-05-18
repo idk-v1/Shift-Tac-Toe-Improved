@@ -10,6 +10,9 @@ var offx = 0;
 var offy = 0;
 var anSpeed = 10;
 
+var rColor = "#f44";
+var bColor = "#44f";
+
 can.width = (window.innerWidth * 0.8, window.innerHeight * 0.8);
 can.height = can.width;
 can.addEventListener("click", input);
@@ -129,7 +132,7 @@ function display(ox, oy)
     ctx.clearRect(0, 0, can.width, can.height);
     ctx.fillStyle = "#888";
     if (ox == 0 && oy == 0)
-        ctx.strokeStyle = (turn ? "#f88" : "#88f");
+        ctx.strokeStyle = (turn ? rColor : bColor);
     else
         ctx.strokeStyle = "#666";
     ctx.lineWidth = 2;
@@ -149,7 +152,7 @@ function display(ox, oy)
             var posy = can.height / 2 - SIZE * tileSize / 2 + y * tileSize - oy * tileSize;
             if (board[x][y] == 1)
             {
-                ctx.strokeStyle = "#88f";
+                ctx.strokeStyle = bColor;
                 ctx.beginPath();
                 ctx.moveTo(posx + tileSize / 8, posy + tileSize / 8);
                 ctx.lineTo(posx + tileSize - tileSize / 8, posy + tileSize - tileSize / 8);
@@ -163,7 +166,7 @@ function display(ox, oy)
             }
             else if (board[x][y] == 2)
             {
-                ctx.strokeStyle = "#f88";
+                ctx.strokeStyle = rColor;
                 ctx.beginPath();
                 ctx.arc(posx + tileSize / 2, posy + tileSize / 2, tileSize * 0.4, 0, 2 * Math.PI);
                 ctx.closePath();
