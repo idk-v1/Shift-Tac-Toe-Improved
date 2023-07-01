@@ -13,7 +13,7 @@ var anSpeed = 10;
 var rColor = "#f44";
 var bColor = "#44f";
 
-can.width = (window.innerWidth * 0.8, window.innerHeight * 0.8);
+can.width = Math.min(window.innerWidth * 0.8, window.innerHeight * 0.8);
 can.height = can.width;
 can.addEventListener("click", input);
 
